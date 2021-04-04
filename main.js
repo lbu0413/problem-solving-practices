@@ -148,3 +148,22 @@ function solution8(arr8) {
 }
 let arr8 = [20, 7, 23, 19, 10, 15, 25, 8, 13];
 console.log(solution8(arr8))
+
+
+// 9. Replace 'A' with '#'
+
+// - Given an uppercase word(all capital letters), if the word has 'letter A', replace 'A' with '#'.
+// - input example: 'BANANA'
+// - output example: 'B#N#N#'
+
+function solution9(str9) {
+    let answer = "";
+    for(let i of str9){
+        if(i === 'A') answer += '#';
+        else answer += i;
+    }
+    return answer;
+}
+
+let str9 = 'BANANA';
+console.log(solution9(str9));
