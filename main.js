@@ -167,3 +167,20 @@ function solution9(str9) {
 
 let str9 = 'BANANA';
 console.log(solution9(str9));
+
+// 10. Finding letter
+
+// - Given a string and a letter, calculate how many times the letter occur in the string.
+// - input example: 'COMPUTERPROGRAMMING', 'R'
+// - output example: 3
+
+function solution10 (str10, letter10) {
+    let sum = 0;
+    for(let i of str10){
+        if(i === letter10) sum++;
+    }
+    return sum;
+}
+let str10 = 'COMPUTERPROGRAMMING';
+let letter10 = 'R';
+console.log(solution10(str10, letter10))
