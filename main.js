@@ -184,3 +184,40 @@ function solution10 (str10, letter10) {
 let str10 = 'COMPUTERPROGRAMMING';
 let letter10 = 'R';
 console.log(solution10(str10, letter10))
+
+// 11. Find all uppercase letters
+
+// - Given a string, calculate how many uppercase letters are in the string.
+// - input example: 'UnitedStatesofAmerica'
+// - output example: 3
+
+function solution11(str){
+    let answer = 0;
+    for(let i of str){
+        if(i === i.toUpperCase()) answer++;
+    }
+    return answer;
+}
+let str = 'UnitedStatesofAmerica'
+console.log(solution11(str));
+
+// 12. Upper to Lower, Lower to Upper
+
+// - Given a string that contains both uppercase and lowercase letters, convert all uppercase letters to lowercase, all lowercase letters to upper.
+// - input example: 'ItisTimeToStudy'
+// - output example: 'iTIStIMEtOsTUDY'
+
+function solution12(str12){
+    let answer = "";
+    for(let i of str12){
+        if(i === i.toUpperCase()){
+            answer += i.toLowerCase();
+        }
+        else{
+            answer += i.toUpperCase();
+        }
+    }
+    return answer;
+}
+let str12 = 'ItisTimeToStudy';
+console.log(solution12(str12));
