@@ -242,3 +242,25 @@ function solution13(arr13){
 }
 let arr13 = ["teacher", "time", "student", "beautiful", "good"];
 console.log(solution13(arr13))
+
+
+// 14. Find the middle letter
+
+// - Given a string of letters, return the middle letter.
+// - If length of the string is even, return the two middle letters.
+// - input example: 'study'
+// - output example: u
+// - input example2: 'good'
+// - output example: oo
+
+function solution14(str14){
+    let mid = Math.floor(str14.length / 2)
+    if(str14.length % 2 === 1){
+        return str14.substr(mid, 1)
+    }
+    else {
+        return str14.substr(mid-1, 2)
+    }
+}
+let str14 = 'bookie';
+console.log(solution14(str14))
