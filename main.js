@@ -221,3 +221,24 @@ function solution12(str12){
 }
 let str12 = 'ItisTimeToStudy';
 console.log(solution12(str12));
+
+// 13. Find the longest string
+
+// - Given an array of N numbers of strings, Return the longest string in the array.
+// - Every string has different lengths.
+// - input example: ["teacher", "time", "student", "beautiful", "good"]
+// - output example: beautiful
+
+function solution13(arr13){
+    let answer;
+    let max = Number.MIN_SAFE_INTEGER;
+    for(i of arr13){
+        if(i.length > max){
+            max = i.length;
+            answer = i;
+        }
+    }
+    return answer;
+}
+let arr13 = ["teacher", "time", "student", "beautiful", "good"];
+console.log(solution13(arr13))
