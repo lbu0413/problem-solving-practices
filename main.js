@@ -262,5 +262,57 @@ function solution14(str14){
         return str14.substr(mid-1, 2)
     }
 }
-let str14 = 'bookie';
+let str14 = 'book';
 console.log(solution14(str14))
+
+// 15. Remove repeated letters
+
+// - Given a string of lowercase letters, remove all the repeated letters.
+// - every letter keeps its order in the string.
+// - input example: 'ksekkset'
+// - output example: kset
+
+function solution15(str15){
+    let answer = "";
+    for(let i = 0; i < str15.length; i++){
+        if(i === str15.indexOf(str15[i])) answer += str15[i];
+    }
+    return answer;
+}
+let str15 = 'ksekkset'
+console.log(solution15(str15))
+
+// 16. how many N letter in the string?
+
+// - Given a string and a letter, calculate how many of the letter exist in the string.
+// - input example: letter = 'k', string = 'ksekkset'
+// - output example: 3
+
+// function solution16(letter16, str16){
+//     let answer = 0;
+//     for(let i = 0; i < str16.length; i++){
+//         if(str16[i] === letter16){
+//             answer++;
+//             i = str16.indexOf(str16[i], i)
+            
+//         }
+//     }
+//     return answer;
+// }
+// let letter16 = 'k';
+// let str16 = 'ksekkset';
+// console.log(solution16(letter16, str16))
+
+function solution16(letter16, str16){
+    let answer = 0;
+    let pos = str16.indexOf(letter16);
+
+    while(pos !== -1){
+        answer++;
+        pos = str16.indexOf(letter16, pos + 1)
+    }
+    return answer;
+}
+let letter16 = 'k';
+let str16 = 'ksekkset';
+console.log(solution16(letter16, str16))
