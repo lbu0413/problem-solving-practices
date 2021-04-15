@@ -316,3 +316,29 @@ function solution16(letter16, str16){
 let letter16 = 'k';
 let str16 = 'ksekkset';
 console.log(solution16(letter16, str16))
+
+// 17. Remove repeated words in the array
+
+// - Given an array of N words, remove repeated words and return a new array.
+// - input example: ['good', 'time', 'good', 'time', 'student']
+// - output example: ['good', 'time', 'student]
+
+// function solution17(arr17) {
+//     let answer;
+//     for(let i = 0; i < arr17.length; i++){
+//         if(i !== arr17.indexOf(arr17[i])){
+//             answer = arr17.splice(i);
+//         }
+//     }
+//     return answer
+// }
+// let arr17 = ['good', 'time', 'good', 'time', 'student'];
+// console.log(solution17(arr17))
+
+function solution17(arr17) {
+    let answer;
+    answer = arr17.filter((item, index) => arr17.indexOf(item) === index);
+    return answer;
+}
+let arr17 = ['good', 'time', 'good', 'time', 'student'];
+console.log(solution17(arr17))
