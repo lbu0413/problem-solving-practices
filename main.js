@@ -342,3 +342,21 @@ function solution17(arr17) {
 }
 let arr17 = ['good', 'time', 'good', 'time', 'student'];
 console.log(solution17(arr17))
+
+// 18. 큰 수 출력하기
+
+// - N(1<=N<=100)개의 정수를 입력받아, 자신의 바로 앞 수보다 큰 수만 출력하는 프로그램을 작
+// 성하세요.(첫 번째 수는 무조건 출력한다).
+// - input example: [7, 3, 9, 5, 6, 12]
+// - output example: [7, 9, 6, 12]
+
+function solution18(arr18){
+    for(let i = 1; i < arr18.length; i++){
+        if(arr18[i] < arr18[i-1]){
+            arr18.splice(i, 1);
+        }
+    }
+    return arr18;
+}
+let arr18 = [7, 3, 9, 5, 6, 12];
+console.log(solution18(arr18));
