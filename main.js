@@ -445,3 +445,28 @@ function solution21(arr21) {
 }
 let arr21 = [1, 0, 1, 1, 1, 0, 0, 1, 1, 0];
 console.log(solution21(arr21));
+
+// 22. Given N students' Math scores, calculate each student's rank based on their scores.
+
+// - if students' scores are the same, they get the same ranks.
+// - that, if the highest score among students is 92 and there are 3 students who had the score of 92, those 3 students are 1st rank and the student who has next highest score would be the 4th rank.
+// - input example: [87, 89, 92, 100, 76]
+// - output example: [4, 3, 2, 1, 5]
+// - input example2: [92, 92, 92, 100, 94, 78]
+// - output example2: [3, 3, 3, 1, 2, 6]
+
+function solution22(arr22) {
+    let n = arr22.length;
+    let answer = Array.from({length: n}, () => 1);
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++){
+            if(arr22[i] < arr22[j]) {
+                answer[i]++;
+            }
+        }
+    }
+    return answer;
+}
+
+let arr22 = [92, 92, 92, 100, 94, 78];
+console.log(solution22(arr22))
