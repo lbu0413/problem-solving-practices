@@ -466,7 +466,23 @@ function solution22(arr22) {
         }
     }
     return answer;
-}
-
+} 
+            //  3   3   3    1    2   6
 let arr22 = [92, 92, 92, 100, 94, 78];
 console.log(solution22(arr22))
+
+
+// 23. Add a value at the beginning and at the end.
+
+// - Given an array, you need to add a value at the beginning and at the end.
+// - input example: [1, 2, 3, 4, 5]
+// - output example: ["start", 1, 2, 3, 4, 5, "end"]
+
+let input = [1, 2, 3, 4, 5];
+input = ["start", ...input, "end"]
+console.log(input);
+
+let input2 = [1, 2, 3, 4, 5];
+input2.unshift("start");
+input2.push("end");
+console.log(input2);
