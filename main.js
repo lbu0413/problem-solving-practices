@@ -532,3 +532,56 @@ let arr24 =
 [19, 27, 29, 37, 27],
 [19, 13, 30, 13, 19]];
 console.log(solution24(arr24));
+
+// 5. 봉우리
+
+// - 지도 정보가 N x N 격자판에 주어집니다. 각 격자에는 그 지역의 높이가 적혀있습니다.
+// - 각 격자판의 숫자 중 자신의 상하좌우 숫자보다 큰 숫자는 봉우리 지역입니다.
+// - 봉우리 지역이 몇 개 있는지 알아내는 프로그램을 작성하세요.
+// - 격자의 가장자리는  0으로초기화 되있다고 가정합니다.
+// - 만약 N = 5 이고, 격자판의 숫자가 다음과 같다면 봉우리의 개수는 10개입니다.
+
+//     ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3bef8524-749a-4e03-9b7f-62288f91123c/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3bef8524-749a-4e03-9b7f-62288f91123c/Untitled.png)
+
+  
+
+// - input example:
+
+//     [[5, 3, 7, 2, 3],
+//     [3, 7, 1, 6, 1],
+//     [7, 2, 5, 3, 4],
+//     [4, 3, 6, 4, 1],
+//     [8, 7, 3, 5, 2]]
+
+// - output example: 10
+
+function solution25(arr25) {
+    let answer = 0;
+    let n = arr25.length;
+    let dx = [-1, 0, 1, 0];
+    let dy = [0, 1, 0, -1];
+    for(let i = 0; i < n; i++) {
+        for(let j = 0; j < n; j++) {
+            let flag = 1;
+            for(let k = 0; k < 4; k++) {
+                let nx = i+dx[k];
+                let ny = j+dy[k];
+                if(nx >= 0 && nx < n && ny >= 0 && ny < n && arr25[nx][ny] >= arr25[i][j]){
+                    flag = 0;
+                    break;
+                }
+            }
+            if(flag) answer++;
+        }
+    }
+    return answer;
+}
+
+let arr25 = 
+    [[5, 3, 7, 2, 3],
+    [3, 7, 1, 6, 1],
+    [7, 2, 5, 3, 4],
+    [4, 3, 6, 4, 1],
+    [8, 7, 3, 5, 2]];
+
+console.log(solution25(arr25))
