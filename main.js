@@ -585,3 +585,39 @@ let arr25 =
     [8, 7, 3, 5, 2]];
 
 console.log(solution25(arr25))
+
+
+// ### 26. Palindromes
+
+// - A word that reads the same forwards and backwards is called a Palindrome.
+// - Given a string, print 'YES' if it is a palindrome, and print 'NO' If it isn't one.
+// - when checking if a string is a palindrome, uppercases and lowercases do not matter.
+// - input example: gooG
+// - output example: YES
+
+// function solution26(str) {
+//     str = str.toLowerCase();
+//     let n = str.length;
+//     let answer = 'YES';
+//     for(let i = 0; i < Math.floor(n / 2); i++) {
+//         if(str[i] !== str[n-i-1]) answer = 'NO';
+//         console.log(str[i]);
+//     }
+//     return answer; 
+// }
+
+// let str26 = 'gooG';
+// console.log(solution26(str26));
+
+function solution26(str) {
+    let answer = 'YES';
+    str = str.toLowerCase();
+    if(str.split('').reverse().join('') !== str) {
+        answer = 'NO'
+    }
+    return answer;
+}
+
+let str26 = 'gooG';
+console.log(solution26(str26));
+
