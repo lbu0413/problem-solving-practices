@@ -621,3 +621,22 @@ function solution26(str) {
 let str26 = 'gooG';
 console.log(solution26(str26));
 
+// 27. Palindromes 2
+
+// - same question as 26 except inputs are different.
+// - there are special characters besides alphabets.
+// - However, you can simply ignore those special characters when checking for palindromes.
+// - input example: "found7, time: study; Yduts; emit, 7Dnuof"
+// - output example: YES
+
+function solution27(s) {
+    let answer = 'YES';
+    s = s.toLowerCase().replace(/[^a-z]/g, '');
+    if(s.split('').reverse().join('') !== s) {
+        answer = 'NO'
+    }
+    return answer;
+}
+
+let str27 = `found7, time: study; Yduts; emit, 7Dnuof`
+console.log(solution27(str27))
