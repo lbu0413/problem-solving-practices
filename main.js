@@ -651,9 +651,23 @@ console.log(solution27(str27))
 // - input example: g0en2T0s8eSoft
 // - output example: 208
 
+// function solution28(str) {
+//     let num = str.replace(/\D+/g, '')
+//     return parseInt(num)
+// }
+
+// let str28 = 'g0en2T0s8eSoft';
+// console.log(solution28(str28))
+
 function solution28(str) {
-    let num = str.replace(/\D+/g, '')
-    return parseInt(num)
+    let answer = "";
+    for(let i of str) {
+        if(!isNaN(i)) {
+            answer += i;
+        }
+    }
+    
+    return parseInt(answer);
 }
 
 let str28 = 'g0en2T0s8eSoft';
