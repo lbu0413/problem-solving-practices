@@ -31,7 +31,7 @@ function solution(a, b) {
 
 let a = [1, 3, 5];
 let b = [2, 3, 6, 7, 9];
-console.log(solution(a, b));
+console.log("solution:", solution(a, b));
 
 // 공통원소 구하기
 // A, B 두 개의 집합이 주어지면 두 집합의 공통 원소를 추출하여 오름차순으로 출력하는 프로
@@ -67,7 +67,7 @@ function solution2(c, d) {
 
 let c = [1, 3, 9, 5, 2];
 let d = [3, 2, 5, 7, 8];
-console.log(solution2(c, d));
+console.log("solution2:", solution2(c, d));
 
 // 연속 부분수열 1
 // N개의 수로 이루어진 수열이 주어집니다.
@@ -104,3 +104,74 @@ function solution3(m, arr) {
 
 let arr3 = [1, 2, 1, 3, 1, 1, 1, 2];
 console.log("solution3:", solution3(6, arr3));
+
+// 연속 부분수열 2
+// N개의 수로 이루어진 수열이 주어집니다.
+// 이 수열에서 연속부분수열의 합이 특정숫자 M이하가 되는 경우가 몇 번 있는지 구하는 프로그
+// 램을 작성하세요.
+// 만약 N=5, M=5이고 수열이 다음과 같다면
+// 1 3 1 2 3
+// 합이 5이하가 되는 연속부분수열은 {1}, {3}, {1}, {2}, {3}, {1, 3}, {3, 1}, {1, 2}, {2, 3},
+// {1, 3, 1}로 총 10가지입니다.
+// ▣ 입력설명
+// 첫째 줄에 N(1≤N≤100,000), M(1≤M≤100,000,000)이 주어진다.
+// 수열의 원소값은 1,000을 넘지 않는 자연수이다.
+// ▣ 출력설명
+// 첫째 줄에 경우의 수를 출력한다.
+// ▣ 입력예제 1
+// 5 5
+// 1 3 1 2 3
+// ▣ 출력예제 1
+// 10
+
+function solution4(n, arr) {
+	let left = 0;
+	let answer = 0;
+	let sum = 0;
+	for (let right = 0; right < arr.length; right++) {
+		sum += arr[right];
+		while (sum > n) {
+			sum -= arr[left++];
+		}
+		answer += right - left + 1;
+	}
+	return answer;
+}
+
+let arr4 = [1, 3, 1, 2, 3];
+console.log("solution4:", solution4(5, arr4));
+
+// 최대 매출
+// 현수의 아빠는 제과점을 운영합니다. 현수 아빠는 현수에게 N일 동안의 매출기록을 주고 연속
+// 된 K일 동안의 최대 매출액이 얼마인지 구하라고 했습니다.
+// 만약 N=10이고 10일 간의 매출기록이 아래와 같습니다. 이때 K=3이면
+// 12 15 11 20 25 10 20 19 13 15
+// 연속된 3일간의 최대 매출액은 11+20+25=56만원입니다.
+// 여러분이 현수를 도와주세요.
+// ▣ 입력설명
+// 첫 줄에 N(5<=N<=100,000)과 M(2<=K<=N)가 주어집니다.
+// 두 번째 줄에 N개의 숫자열이 주어집니다. 각 숫자는 500이하의 음이 아닌 정수입니다.
+// ▣ 출력설명
+// 첫 줄에 최대 매출액을 출력합니다.
+// ▣ 입력예제 1
+// 10 3
+// 12 15 11 20 25 10 20 19 13 15
+// ▣ 출력예제 1
+// 56
+
+function solution5(k, arr) {
+	let sum = 0;
+	let answer;
+	for (let i = 0; i < k; i++) {
+		answer = sum += arr[i];
+	}
+	for (let i = k; i < arr.length; i++) {
+		sum += arr[i];
+		sum -= arr[i - k];
+		answer = Math.max(answer, sum);
+	}
+	return answer;
+}
+
+let arr5 = [12, 15, 11, 20, 25, 10, 20, 19, 13, 15];
+console.log("solution5:", solution5(3, arr5));
