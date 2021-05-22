@@ -16,3 +16,19 @@
 // 2 3 6 7 9
 // ▣ 출력예제 1
 // 1 2 3 3 5 6 7 9
+
+function solution(a, b) {
+	let p1 = (p2 = 0);
+	let answer = [];
+	while (p1 < a.length && p2 < b.length) {
+		if (a[p1] < b[p2]) answer.push(a[p1++]);
+		else answer.push(b[p2++]);
+	}
+	while (p1 < a.length) answer.push(a[p1++]);
+	while (p2 < b.length) answer.push(b[p2++]);
+	return answer;
+}
+
+let a = [1, 3, 5];
+let b = [2, 3, 6, 7, 9];
+console.log(solution(a, b));
