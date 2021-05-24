@@ -277,30 +277,7 @@ function compareMaps(map1, map2) {
 	}
 	return true;
 }
-function solution8(g, h) {
-	let answer = 0;
-	let gH = new Map();
-	let hH = new Map();
-	for (let i of h) {
-		if (hH.has(i)) hH.set(i, hH.get(i) + 1);
-		else hH.set(i, 1);
-	}
-	let len = h.length - 1;
-	for (let i = 0; i < len; i++) {
-		if (gH.has(g[i])) gH.set(g[i], gH.get(g[i]) + 1);
-		else gH.set(g[i], 1);
-	}
-	let left = 0;
-	for (let right = len; right < g.length; right++) {
-		if (gH.has(g[right])) gH.set(g[right], gH.get(g[right]) + 1);
-		else gH.set(g[right], 1);
-		if (compareMaps(gH, hH)) answer++;
-		gH.set(g[left], gH.get(g[left]) - 1);
-		if (gH.get(g[left]) === 0) gH.delete(g[left]);
-		left++;
-	}
-	return answer;
-}
+function solution8(g, h) {}
 
 let g = "bacaAacba";
 let h = "abc";
