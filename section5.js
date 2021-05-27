@@ -270,14 +270,15 @@ console.log("solution7: ", solution7(e, f));
 // ▣ 출력예제 1
 // 3
 // 출력설명: {bac}, {acb}, {cba} 3개의 부분문자열이 "abc"문자열과 아나그램입니다.
-function compareMaps(map1, map2) {
-	if (map1.size !== map2.size) return false;
-	for ([key, value] of map1) {
-		if (value !== map2.get(key)) return false;
-	}
-	return true;
-}
+
 function solution8(g, h) {
+	function compareMaps(map1, map2) {
+		if (map1.size !== map2.size) return false;
+		for ([key, value] of map1) {
+			if (value !== map2.get(key)) return false;
+		}
+		return true;
+	}
 	let gH = new Map();
 	let hH = new Map();
 	let answer = 0;
