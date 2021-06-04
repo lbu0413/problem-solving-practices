@@ -249,3 +249,175 @@ function solution10(a, b) {
 let a = "COMPUTERPROGRAMMING";
 let b = "R";
 console.log("solution10: ", solution10(a, b));
+
+// 대문자 찾기
+// 한 개의 문자열을 입력받아 해당 문자열에 알파벳 대문자가 몇 개 있는지 알아내는 프로그램
+// 을 작성하세요.
+// ▣ 입력설명
+// 첫 줄에 문자열이 입력된다. 문자열의 길이는 100을 넘지 않습니다.
+// ▣ 출력설명
+// 첫 줄에 대문자의 개수를 출력한다.
+// ▣ 입력예제 1
+// KoreaTimeGood
+// ▣ 출력예제 1
+// 3
+
+function solution11(s) {
+	let count = 0;
+	for (let i of s) {
+		if (i === i.toUpperCase()) count++;
+	}
+	return count;
+}
+console.log("solution11: ", solution11("KoreaTimeGood"));
+
+// 대문자로 통일
+// 대문자와 소문자가 같이 존재하는 문자열을 입력받아 대문자로 모두 통일하여 문자열을 출력
+// 하는 프로그램을 작성하세요.
+// ▣ 입력설명
+// 첫 줄에 문자열이 입력된다. 문자열의 길이는 100을 넘지 않습니다.
+// ▣ 출력설명
+// 첫 줄에 대문자로 통일된 문자열이 출력된다.
+// ▣ 입력예제 1
+// ItisTimeToStudy
+// ▣ 출력예제 1
+// ITISTIMETOSTUDY
+
+function solution12(s) {
+	return s.toUpperCase();
+}
+console.log("solution12: ", solution12("ItisTimeToStudy"));
+
+// 대소문자 변환
+// 대문자와 소문자가 같이 존재하는 문자열을 입력받아 대문자는 소문자로 소문자는 대문자로
+// 변환하여 출력하는 프로그램을 작성하세요.
+// ▣ 입력설명
+// 첫 줄에 문자열이 입력된다. 문자열의 길이는 100을 넘지 않습니다.
+// ▣ 출력설명
+// 첫 줄에 대문자는 소문자로, 소문자는 대문자로 변환된 문자열을 출력합니다.
+// ▣ 입력예제 1
+// StuDY
+// ▣ 출력예제 1
+// sTUdy
+
+function solution13(s) {
+	let answer = "";
+	for (let i of s) {
+		if (i === i.toUpperCase()) answer += i.toLowerCase();
+		else answer += i.toUpperCase();
+	}
+	return answer;
+}
+
+console.log("solution13: ", solution13("StuDY"));
+
+// 가장 긴 문자열
+// N개의 문자열이 입력되면 그 중 가장 긴 문자열을 출력하는 프로그램을 작성하세요.
+// ▣ 입력설명
+// 첫 줄에 자연수 N이 주어진다.(3<=N<=30)
+// 두 번째 줄부터 N개의 문자열이 주어진다. 문자열의 길이는 100을 넘지 않습니다.
+// 각 문자열의 길이는 서로 다릅니다.
+// ▣ 출력설명
+// 첫 줄에 가장 긴 문자열을 출력한다.
+// ▣ 입력예제 1
+// 5
+// teacher
+// time
+// student
+// beautiful
+// good
+// ▣ 출력예제 1
+// beautiful
+
+function solution14(arr) {
+	let max = 0;
+	let answer;
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i].length > max) {
+			max = arr[i].length;
+			answer = arr[i];
+		}
+	}
+	return answer;
+}
+
+let arr14 = ["teacher", "time", "student", "beautiful", "good"];
+console.log("solution14: ", solution14(arr14));
+
+// 가운데 문자 출력
+// 소문자로 된 단어(문자열)가 입력되면 그 단어의 가운데 문자를 출력하는 프로그램을 작성하세
+// 요. 단 단어의 길이가 짝수일 경우 가운데 2개의 문자를 출력합니다.
+// ▣ 입력설명
+// 첫 줄에 문자열이 입력된다. 문자열의 길이는 100을 넘지 않습니다.
+// ▣ 출력설명
+// 첫 줄에 가운데 문자를 출력합니다.
+// ▣ 입력예제 1
+// study
+// ▣ 출력예제 1
+// u
+// ▣ 입력예제 2
+// good
+// ▣ 출력예제 2
+// oo
+
+function solution15(s) {
+	let mid = Math.floor(s.length / 2);
+	if (s.length % 2 === 0) {
+		return [s[mid - 1], s[mid]].join("");
+	} else return s[mid];
+}
+
+console.log("solution15: ", solution15("good"));
+
+// 중복문자제거
+// 소문자로 된 한개의 문자열이 입력되면 중복된 문자를 제거하고 출력하는 프로그램을 작성하
+// 세요.
+// 제거된 문자열의 각 문자는 원래 문자열의 순서를 유지합니다.
+// ▣ 입력설명
+// 첫 줄에 문자열이 입력됩니다.
+// ▣ 출력설명
+// 첫 줄에 중복문자가 제거된 문자열을 출력합니다.
+// ▣ 입력예제 1
+// ksekkset
+// ▣ 출력예제 1
+// kset
+
+function solution16(s) {
+	let answer = "";
+	for (let i = 0; i < s.length; i++) {
+		if (i === s.indexOf(s[i])) answer += s[i];
+	}
+	return answer;
+}
+console.log("solution16: ", solution16("ksekkset"));
+
+// 중복단어제거
+// N개의 문자열이 입력되면 중복된 문자열은 제거하고 출력하는 프로그램을 작성하세요.
+// 출력하는 문자열은 원래의 입력순서를 유지합니다.
+// ▣ 입력설명
+// 첫 줄에 자연수 N이 주어진다.(3<=N<=30)
+// 두 번째 줄부터 N개의 문자열이 주어진다. 문자열의 길이는 100을 넘지 않습니다.
+// ▣ 출력설명
+// 첫 줄부터 중복이 제거된 문자열을 차례로 출력한다.
+// ▣ 입력예제 1
+// 5
+// good
+// time
+// good
+// time
+// student
+// ▣ 출력예제 1
+// good
+// time
+// student
+
+function solution17(arr) {
+	let answer = [];
+	for (let i = 0; i < arr.length; i++) {
+		if (i === arr.indexOf(arr[i])) answer.push(arr[i]);
+	}
+	return answer;
+}
+
+let arr17 = ["good", "time", "good", "time", "student"];
+console.log("solution17: ", solution17(arr17));
