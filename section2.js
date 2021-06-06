@@ -147,3 +147,69 @@ function solution5(arr) {
 }
 let arr5 = [87, 89, 92, 100, 76];
 console.log("solution5: ", solution5(arr5));
+
+function solution6(arr) {
+	let sum1 = (sum2 = 0);
+	let answer = Number.MIN_SAFE_INTEGER;
+	for (let i = 0; i < arr.length; i++) {
+		sum1 = sum2 = 0;
+		for (let j = 0; j < arr.length; j++) {
+			sum1 += arr[i][j];
+			sum2 += arr[j][i];
+		}
+		answer = Math.max(answer, sum1, sum2);
+	}
+	sum1 = sum2 = 0;
+	for (let i = 0; i < arr.length; i++) {
+		sum1 += arr[i][i];
+		sum2 += arr[i][arr.length - i - 1];
+	}
+	answer = Math.max(answer, sum1, sum2);
+	return answer;
+}
+
+let arr6 = [
+	[10, 13, 10, 12, 15],
+	[12, 39, 30, 23, 11],
+	[11, 25, 50, 53, 15],
+	[19, 27, 29, 37, 27],
+	[19, 13, 30, 13, 19],
+];
+console.log("solution6: ", solution6(arr6));
+
+function solution7(arr) {
+	let n = arr.length;
+	let answer = 0;
+	let dx = [0, 1, 0, -1];
+	let dy = [-1, 0, 1, 0];
+	for (let i = 0; i < n; i++) {
+		for (let j = 0; j < n; j++) {
+			let flag = 1;
+			for (let k = 0; k < 4; k++) {
+				let nx = i + dx[k];
+				let ny = j + dy[k];
+				if (
+					nx >= 0 &&
+					nx < n &&
+					ny >= 0 &&
+					ny < n &&
+					arr[nx][ny] >= arr[i][j]
+				) {
+					flag = 0;
+					break;
+				}
+			}
+			if (flag) answer++;
+		}
+	}
+	return answer;
+}
+
+let arr7 = [
+	[5, 3, 7, 2, 3],
+	[3, 7, 1, 6, 1],
+	[7, 2, 5, 3, 4],
+	[4, 3, 6, 4, 1],
+	[8, 7, 3, 5, 2],
+];
+console.log("solution7:  ", solution7(arr7));
