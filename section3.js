@@ -76,3 +76,42 @@ function solution3(s) {
 
 let str3 = "g0en2T0s8eSoft";
 console.log("solution3 :", solution3(str3));
+
+// 가장 짧은 문자거리
+
+// 한 개의 문자열 s와 문자 t가 주어지면 문자열 s의 각 문자가 문자 t와 떨어진 최소거리를 출력하는 프로그램을 작성하세요.
+
+// 입력예제1
+// teachermode e
+
+// 출력예제 1
+// 1 0 1 2 1 0 1 2 2 1 0
+
+function solution4(s, t) {
+	let answer = [];
+	let answer2 = [];
+	let p = Number.MAX_SAFE_INTEGER;
+	for (let i of s) {
+		if (i === t) {
+			p = 0;
+			answer.push(p);
+		} else {
+			p++;
+			answer.push(p);
+		}
+	}
+	p = Number.MAX_SAFE_INTEGER;
+	for (let i = s.length - 1; i >= 0; i--) {
+		if (s[i] === t) {
+			p = 0;
+		} else {
+			p++;
+			answer[i] = Math.min(answer[i], p);
+		}
+	}
+	return answer;
+}
+
+let str4 = "teachermode";
+let t = "e";
+console.log("solution4: ", solution4(str4, t));
