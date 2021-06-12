@@ -143,3 +143,21 @@ function solution5(s) {
 
 let str5 = "KKHSSSSSSSE";
 console.log("solution5: ", solution5(str5));
+
+function solution5(s) {
+	let count = 1;
+	let answer = "";
+	for (let i = 0; i < s.length; i++) {
+		if (s[i] === s[i + 1]) {
+			count++;
+		} else {
+			answer += s[i];
+			if (count > 1) answer += String(count);
+			count = 1;
+		}
+	}
+	return answer;
+}
+
+let str5 = "KKHSSSSSSSE";
+console.log("solution5: ", solution5(str5));
