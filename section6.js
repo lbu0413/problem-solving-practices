@@ -149,3 +149,36 @@ function solution4(s) {
 
 let s4 = "352+*9-";
 console.log("solution4: ", solution4(s4));
+
+// 쇠막대기
+function solution6(a) {
+	let answer = 0;
+	let stack = [];
+	for (let i = 0; i < a.length; i++) {
+		if (a[i] === "(") {
+			stack.push(a[i]);
+		} else {
+			stack.pop();
+			if (a[i - 1] === "(") answer += stack.length;
+			else answer += 1;
+		}
+	}
+	return answer;
+}
+let str6 = "()(((()())(())()))(())";
+console.log("solution6: ", solution6(str6));
+
+//공주구하기
+
+function solution7(a, b) {
+	let answer;
+	let queue = Array.from({ length: a }, (v, i) => i + 1);
+	while (queue.length) {
+		for (let i = 1; i < b; i++) queue.push(queue.shift());
+		queue.shift();
+		if (queue.length === 1) answer = queue.shift();
+	}
+	return answer;
+}
+
+console.log("solution7: ", solution7(8, 3));
