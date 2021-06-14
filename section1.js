@@ -411,10 +411,18 @@ console.log("solution16: ", solution16("ksekkset"));
 // time
 // student
 
+// function solution17(arr) {
+// 	let set = new Set(arr);
+// 	let answer = Array.from(set);
+// 	return answer.join(", ");
+// }
+
 function solution17(arr) {
 	let answer = [];
 	for (let i = 0; i < arr.length; i++) {
-		if (i === arr.indexOf(arr[i])) answer.push(arr[i]);
+		if (i === arr.indexOf(arr[i])) {
+			answer.push(arr[i]);
+		}
 	}
 	return answer;
 }
