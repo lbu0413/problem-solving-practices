@@ -182,3 +182,24 @@ function solution7(a, b) {
 }
 
 console.log("solution7: ", solution7(8, 3));
+
+// 교육과정설계
+
+function solution8(a, b) {
+	let answer = "YES";
+	let queue = a.split("");
+	for (let i of b) {
+		console.log(queue);
+		if (queue.includes(i)) {
+			if (i !== queue.shift()) return "NO";
+		}
+	}
+	console.log(queue);
+	if (queue.length > 0) return "NO";
+	return answer;
+}
+
+let a = "CBA";
+let b = "CBDAGE";
+
+console.log("solution8: ", solution8(a, b));
