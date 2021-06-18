@@ -99,3 +99,34 @@ let a6 = [
 ];
 
 console.log("solution6: ", solution6(a6));
+
+function solution7(a) {
+	let count = 0;
+	let n = a.length;
+	let dx = [0, -1, 0, 1];
+	let dy = [1, 0, -1, 0];
+	for (let i = 0; i < n; i++) {
+		for (let j = 0; j < n; j++) {
+			let flag = 1;
+			for (let k = 0; k < 4; k++) {
+				let nx = i + dx[k];
+				let ny = j + dy[k];
+				if (nx >= 0 && nx < n && ny >= 0 && ny < n && a[nx][ny] >= a[i][j]) {
+					flag = 0;
+					break;
+				}
+			}
+			if (flag) count++;
+		}
+	}
+
+	return count;
+}
+let a7 = [
+	[5, 3, 7, 2, 3],
+	[3, 7, 1, 6, 1],
+	[7, 2, 5, 3, 4],
+	[4, 3, 6, 4, 1],
+	[8, 7, 3, 5, 2],
+];
+console.log("solution7: ", solution7(a7));
