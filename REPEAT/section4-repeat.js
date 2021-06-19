@@ -75,3 +75,30 @@ let a3 = [
 
 let b3 = 3;
 console.log("solution3: ", solution3(a3, b3));
+
+function solution4(m, a) {
+	let answer = 0;
+	a.sort((c, d) => c[0] + c[1] - (d[0] + d[1]));
+	for (let i = 0; i < a.length; i++) {
+		let moneyLeft = m - (a[i][0] / 2 + a[i][1]);
+		let count = 1;
+		for (let j = 0; j < a.length; j++) {
+			if (i !== j && a[j][0] + a[j][1] <= moneyLeft) {
+				moneyLeft -= a[j][0] + a[j][1];
+				count++;
+			} else continue;
+		}
+		answer = count;
+	}
+	return answer;
+}
+
+let a4 = [
+	[6, 6],
+	[2, 2],
+	[4, 3],
+	[4, 5],
+	[10, 3],
+];
+
+console.log("solution4: ", solution4(28, a4));
