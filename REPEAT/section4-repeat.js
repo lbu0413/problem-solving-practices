@@ -102,3 +102,20 @@ let a4 = [
 ];
 
 console.log("solution4: ", solution4(28, a4));
+
+function solution5(k, a) {
+	let set = new Set();
+	for (let i = 0; i < a.length; i++) {
+		for (let j = i + 1; j < a.length; j++) {
+			for (let k = j + 1; k < a.length; k++) {
+				set.add(a[i] + a[j] + a[k]);
+			}
+		}
+	}
+	let answer = Array.from(set);
+	answer.sort((a, b) => b - a);
+	return answer[k - 1];
+}
+
+let a5 = [13, 15, 34, 23, 45, 65, 33, 11, 26, 42];
+console.log("solution5: ", solution5(3, a5));
