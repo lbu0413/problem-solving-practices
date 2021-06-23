@@ -183,3 +183,14 @@ function solution17(a) {
 
 let arr17 = ["good", "time", "good", "time", "student"];
 console.log("solution17: ", solution17(arr17));
+
+function solution16n2(a) {
+	let answer = [];
+	for (let i = 0; i < a.length; i++) {
+		if (i === a.indexOf(a[i])) answer.push(a[i]);
+	}
+	return answer.join("");
+}
+
+let an2 = "ksekkset";
+console.log("solution16-2: ", solution16n2(an2));
