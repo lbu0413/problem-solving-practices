@@ -28,3 +28,14 @@ function solution15(a) {
 
 let a15 = "good";
 console.log("solution15: ", solution15(a15));
+
+function solution16(a) {
+	let answer = "";
+	for (let i = 0; i < a.length; i++) {
+		if (i === a.indexOf(a[i])) answer += a[i];
+	}
+	return answer;
+}
+
+let a16 = "ksekkset";
+console.log("solution16: ", solution16(a16));
