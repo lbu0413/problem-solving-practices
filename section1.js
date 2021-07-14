@@ -429,3 +429,21 @@ function solution17(arr) {
 
 let arr17 = ["good", "time", "good", "time", "student"];
 console.log("solution17: ", solution17(arr17));
+
+function solution8n2(a) {
+	let sum = a.reduce((a, b) => a + b, 0);
+
+	for (let i = 0; i < a.length; i++) {
+		for (let j = 1; i < a.length; j++) {
+			if (sum - (a[i] + a[j]) === 100) {
+				a.splice(i, 1);
+				a.splice(j, 1);
+			}
+		}
+	}
+	return a;
+}
+
+let a8n2 = [20, 7, 23, 19, 10, 15, 25, 8, 13];
+console.log("solution8-2: ", solution8n2(a8n2));
+
