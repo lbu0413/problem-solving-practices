@@ -62,3 +62,27 @@ function solution4(arr) {
 
 let arr4 = [11, 7, 5, 6, 10, 9];
 console.log("solution4: ", solution4(arr4));
+
+function solution5(size, arr) {
+	let answer = Array.from({ length: size }, () => 0);
+	arr.forEach((x) => {
+		let pos = -1;
+		for (let i = 0; i < size; i++) {
+			if (x === answer[i]) pos = i;
+		}
+		if (pos === -1) {
+			for (let i = size - 1; i >= 1; i--) {
+				answer[i] = answer[i - 1];
+			}
+		} else {
+			for (let i = pos; i >= 1; i--) {
+				answer[i] = answer[i - 1];
+			}
+		}
+		answer[0] = x;
+	});
+	return answer;
+}
+
+let arr5 = [1, 2, 3, 2, 6, 2, 3, 5, 7];
+console.log("solution5: ", solution5(5, arr5));
