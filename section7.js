@@ -45,3 +45,20 @@ function solution3(arr) {
 
 let arr3 = [1, 2, 3, -3, -2, 5, 6, -6];
 console.log("solution3", solution3(arr3));
+
+function solution4(arr) {
+	let answer = arr;
+	for (let i = 1; i < arr.length; i++) {
+		let key = arr[i];
+		let j = i - 1;
+		while (j >= 0 && arr[j] > key) {
+			arr[j + 1] = arr[j];
+			j--;
+		}
+		arr[j + 1] = key;
+	}
+	return answer;
+}
+
+let arr4 = [11, 7, 5, 6, 10, 9];
+console.log("solution4: ", solution4(arr4));
