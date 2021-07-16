@@ -86,3 +86,64 @@ function solution5(size, arr) {
 
 let arr5 = [1, 2, 3, 2, 6, 2, 3, 5, 7];
 console.log("solution5: ", solution5(5, arr5));
+
+function pratice1(arr) {
+	let answer = arr;
+	for (let i = 0; i < arr.length - 1; i++) {
+		let min = i;
+		for (let j = i + 1; j < arr.length; j++) {
+			if (arr[j] < arr[min]) min = j;
+		}
+		[arr[i], arr[min]] = [arr[min], arr[i]];
+	}
+	return answer;
+}
+
+let p1 = [13, 5, 11, 7, 23, 15];
+console.log("p1", pratice1(p1));
+
+function practice2(arr) {
+	let answer = arr;
+	for (let i = 0; i < arr.length - 1; i++) {
+		for (let j = 0; j < arr.length - i - 1; j++) {
+			if (arr[j] > arr[j + 1]) {
+				[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+			}
+		}
+	}
+	return answer;
+}
+let p2 = [13, 5, 11, 7, 23, 15];
+console.log("p2", practice2(p2));
+
+function practice3(arr) {
+	let answer = arr;
+	for (let i = 0; i < arr.length - 1; i++) {
+		for (let j = 0; j < arr.length - i - 1; j++) {
+			if (arr[j] > 0 && arr[j + 1] < 0) {
+				[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+			}
+		}
+	}
+	return answer;
+}
+
+let p3 = [1, 2, 3, -3, -2, 5, 6, -6];
+console.log("p3", practice3(p3));
+
+function practice4(arr) {
+	let answer = arr;
+	for (let i = 1; i < arr.length; i++) {
+		let j = i - 1;
+		let key = arr[i];
+		while (j >= 0 && arr[j] > key) {
+			arr[j + 1] = arr[j];
+			j--;
+		}
+		arr[j + 1] = key;
+	}
+	return answer;
+}
+
+let p4 = [11, 7, 5, 6, 10, 9];
+console.log("p4", practice4(p4));
