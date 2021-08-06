@@ -38,3 +38,25 @@ function solution5(x) {
 	return answer.join(" ");
 }
 console.log("solution5: ", solution5("the quick brown fox"));
+
+function solution6(x) {
+	let answer = x.split(" ");
+	let max = answer[0].length;
+	for (let i = 1; i < answer.length; i++) {
+		if (max < answer[i].length) {
+			max = answer[i];
+		}
+	}
+	return max;
+}
+
+console.log("solution6: ", solution6("Web Development Tutorial"));
+
+function solution7(x) {
+	return x
+		.toLowerCase()
+		.split("")
+		.filter((letter) => "aeiou".includes(letter)).length;
+}
+
+console.log("solution7: ", solution7("The quick brown fox"));
